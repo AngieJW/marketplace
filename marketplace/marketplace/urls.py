@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from core.views import index, contact, privacy, terms
 
@@ -9,6 +9,9 @@ from core.views import index, contact, privacy, terms
 urlpatterns = [
     # set homepage to index view
     path('', index, name='index'),
+
+    path('items/', include('item.urls')),
+
     # set contact page, privacy page, and terms page
     path('contact/', contact, name='contact'),
     path('privacy/', privacy, name='privacy'),
