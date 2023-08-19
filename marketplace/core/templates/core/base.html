@@ -14,12 +14,12 @@
     <a href="/items" class="text-lg font-semibold hover:text-gray-500"> Browse </a>
     <a href="/items/new" class="text-lg font-semibold hover:text-gray-500"> New item </a>
 
-    {% if user %}
+    {% comment %} {% if user %}
     <a href="/logout" class="px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700"> Logout </a>
-    {% else %}
+    {% else %} {% endcomment %}
     <a href="/login" class="px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700"> Log in </a>
-    <a href="/register" class="px-6 py-3 text-lg font-semibold bg-gray-500 text-white rounded-xl hover:bg-gray-700"> Sign up </a>
-    {% endif %}
+    <a href="{% url 'core:signup' %}" class="px-6 py-3 text-lg font-semibold bg-gray-500 text-white rounded-xl hover:bg-gray-700"> Sign up </a>
+    {% comment %} {% endif %} {% endcomment %}
 
     </div>
   </nav>
@@ -36,9 +36,9 @@
     <div class="w-1/3">
       <h3 class="mb-5 font-semibold text-gray-400">Menu</h3>
       <ul class="space-y-2">
-        <li><a href="{% url 'contact' %}" class="text-lg text-teal-500 hover:text-teal-700">Contact</a></li>
-        <li><a href="{% url 'privacy' %}" class="text-lg text-teal-500 hover:text-teal-700">Privacy Policy</a></li>
-        <li><a href="{% url 'terms' %}" class="text-lg text-teal-500 hover:text-teal-700">Terms & Conditions</a></li>
+        <li><a href="{% url 'core:contact' %}" class="text-lg text-teal-500 hover:text-teal-700">Contact</a></li>
+        <li><a href="{% url 'core:privacy' %}" class="text-lg text-teal-500 hover:text-teal-700">Privacy Policy</a></li>
+        <li><a href="{% url 'core:terms' %}" class="text-lg text-teal-500 hover:text-teal-700">Terms & Conditions</a></li>
       </ul>
     </div>
     {% comment %} <p class="text-center text-gray-500"> &copy; Angie's marketplace 2020 </p> {% endcomment %}
